@@ -34,6 +34,9 @@
     }
     showDebug("Отправляем данные в Telegram...");
     tg.sendData(JSON.stringify(data));
+    if (typeof tg.close === "function") {
+      tg.close();
+    }
   }
 
   if (!tg) {
