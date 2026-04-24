@@ -20,13 +20,16 @@
     }
 
     const data = Object.fromEntries(new FormData(form).entries());
+    if (!tg || typeof tg.sendData !== "function") {
+      window.alert("Форма должна быть открыта внутри Telegram.");
+      return;
+    }
     tg.sendData(JSON.stringify(data));
   }
 
   tg.ready();
   tg.expand();
-  tg.MainButton.setText("Отправить заявку");
-  tg.MainButton.show();
+  tg.MainButton.hide();
 
   priority.addEventListener("change", validate);
   submitButton.addEventListener("click", function (event) {
@@ -37,5 +40,4 @@
     event.preventDefault();
     submitPayload();
   });
-  tg.MainButton.onClick(submitPayload);
 })();
