@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Заявка на сервис</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <h1>Заявка на сервис</h1>
+      <form id="service-form" class="form">
+        <section class="card">
+          <label>Отдел
+            <select name="department" required>
+              <option value="">Выберите отдел</option>
+              <option>ОП</option>
+              <option>ОВ</option>
+              <option>Комиссия</option>
+              <option>ППО</option>
+            </select>
+          </label>
+
+          <label>Причина заезда
+            <select name="entry_reason" required>
+              <option value="">Выберите причину</option>
+              <option>заезд по гарантийному ремонту</option>
+              <option>заезд на первичную диагностику перед приемом</option>
+              <option>заезд на предпродажный ремонт</option>
+              <option>заезд на предпродажные работы</option>
+              <option>заезд на ТО</option>
+              <option>внезапная проблема с авто на складе при продаже/показе</option>
+              <option>заезд на осмотр</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="card">
+          <label>Марка
+            <input name="brand" type="text" required />
+          </label>
+          <label>Модель
+            <input name="model" type="text" required />
+          </label>
+          <label>VIN
+            <input name="vin" type="text" required />
+          </label>
+          <label>Ответственный
+            <input name="requester" type="text" required />
+          </label>
+        </section>
+
+        <section class="card">
+          <label>Приоритет
+            <select name="priority" id="priority" required>
+              <option>обычный</option>
+              <option>наивысший</option>
+            </select>
+          </label>
+          <label>Комментарий
+            <textarea name="comment" id="comment" rows="4"></textarea>
+          </label>
+        </section>
+      </form>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+  </html>
