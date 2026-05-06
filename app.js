@@ -20,6 +20,8 @@
     }
 
     const data = Object.fromEntries(new FormData(form).entries());
+    data._submitted_at = new Date().toISOString();
+    data._timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
     if (!tg || typeof tg.sendData !== "function") {
       window.alert("Форма должна быть открыта внутри Telegram.");
       return;
